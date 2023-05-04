@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <nav>
+    <nav v-if="layoutGnB">
       <v-toolbar
         dark
         color="#263b85"
@@ -72,15 +72,15 @@
       </v-toolbar>
     </nav>
     <v-row no-gutters>
-      <!--      <v-col
+      <v-col
         cols="12"
         md="4"
       >
-        래프트
-      </v-col>-->
+        레프트
+      </v-col>
       <v-col
         cols="12"
-        md="12"
+        md="8"
       >
         <nuxt />
       </v-col>
@@ -104,17 +104,17 @@
   </v-app>
 </template>
 <script>
+
+import { layoutGnB, layoutLeft, layoutLeftCol, layoutRightCol } from "~/plugin/layout.setting";
+
 export default {
-  name: "DefaultPage",
+  name: 'DefaultPage',
   data() {
     return {
-      btns: [
-        ['Removed', '0'],
-        ['Large', 'lg'],
-        ['Custom', 'b-xl'],
-      ],
-      items: [...Array(4)].map((_, i) => `Item ${i}`),
-
+      layoutGnB,
+      layoutLeft,
+      layoutLeftCol,
+      layoutRightCol,
       navMenu: [
         {
           mnuId: "SYS-UI-001-000",
@@ -336,10 +336,11 @@ export default {
     };
   },
   methods: {
+
     testProc(scrnPth) {
       this.$router.push({ path: scrnPth });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
