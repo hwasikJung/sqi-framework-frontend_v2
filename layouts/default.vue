@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <nav v-if="layoutGnB">
+    <nav v-if="layoutHeader">
       <v-toolbar
         dark
-        color="#263b85"
+        :color="layoutColor"
       >
         <v-toolbar-title>
           <nuxt-link
@@ -14,7 +14,7 @@
           </nuxt-link>
         </v-toolbar-title>
         <v-spacer />
-        <v-row>
+        <v-row v-if="layoutGnB">
           <v-menu
             v-for="(data, i) in navMenu.filter((c) => c.mnuLvl === 1 && c.tskId !== 'dashboard')"
             :key="i"
@@ -46,19 +46,13 @@
           </v-menu>
         </v-row>
         <v-toolbar-items>
-          <v-text-field
-            label="검색"
-            hide-details
-            prepend-icon="mdi-magnify"
-            :style="{ display: 'flex', alignItems: 'center' }"
-          />
           <v-btn
             text
             nuxt
             to="/member/loginInfo"
             :style="{ display: 'flex', alignItems: 'center' }"
           >
-            <div>내정보</div>
+            <div>로그인</div>
           </v-btn>
           <v-btn
             text
@@ -73,29 +67,31 @@
     </nav>
     <v-row no-gutters>
       <v-col
+        v-if="layoutLeft"
         cols="12"
-        md="4"
+        :md="layoutLeft ? layoutLeftCol : ''"
       >
         레프트
       </v-col>
       <v-col
         cols="12"
-        md="8"
+        :md="layoutLeft ? layoutRightCol : '12'"
       >
+        <!-- 메인 컨텐츠-->
         <nuxt />
       </v-col>
     </v-row>
-    <nav>
+    <nav v-if="layoutFooter">
       <v-toolbar
         dark
-        color="#263b85"
+        :color="layoutColor"
       >
         <v-toolbar-title>
           <v-col
             class="text-center"
             cols="12"
           >
-            {{ new Date().getFullYear() }} — <strong>SQISFOT Fotter</strong>
+            {{ new Date().getFullYear() }} — <strong>SQISFOT Footer</strong>
           </v-col>
         </v-toolbar-title>
         <v-spacer />
@@ -105,13 +101,16 @@
 </template>
 <script>
 
-import { layoutGnB, layoutLeft, layoutLeftCol, layoutRightCol } from "~/plugin/layout.setting";
+import { layoutHeader, layoutFooter, layoutGnB, layoutColor, layoutLeft, layoutLeftCol, layoutRightCol } from "~/plugin/layout.setting";
 
 export default {
   name: 'DefaultPage',
   data() {
     return {
+      layoutHeader,
+      layoutFooter,
       layoutGnB,
+      layoutColor,
       layoutLeft,
       layoutLeftCol,
       layoutRightCol,
@@ -336,7 +335,6 @@ export default {
     };
   },
   methods: {
-
     testProc(scrnPth) {
       this.$router.push({ path: scrnPth });
     },

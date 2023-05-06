@@ -6,7 +6,7 @@ export default {
     titleTemplate: '%s - sqi-framework-frontend_v2',
     title: 'sqi-framework-frontend_v2',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
@@ -21,7 +21,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugin/layout.setting.js'],
+  plugins: ['~/plugin/layout.setting.js', '~/plugins/interceptors.axios.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
