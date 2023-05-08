@@ -47,7 +47,7 @@ module.exports = {
       code: 180,
       template: 180,
       tabWidth: 2,
-      comments: 80,
+      comments: 180,
       ignorePattern: "",
       ignoreComments: false,
       ignoreTrailingComments: false,

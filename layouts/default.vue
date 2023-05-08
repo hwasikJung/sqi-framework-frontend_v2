@@ -36,7 +36,7 @@
                 v-for="(subData, j) in navMenu.filter((c) => c.mnuLvl === 2 && data.mnuId === c.uppMnuId)"
                 :key="j"
                 lnik
-                @click="testProc(subData.scrnPth)"
+                @click="goPath(subData.scrnPth)"
               >
                 <v-list-item-title>
                   {{ subData.mnuNm }}
@@ -72,6 +72,7 @@
         :md="layoutLeft ? layoutLeftCol : ''"
       >
         레프트
+        <button @click="testProc">클릭</button>
       </v-col>
       <v-col
         cols="12"
@@ -114,230 +115,21 @@ export default {
       layoutLeft,
       layoutLeftCol,
       layoutRightCol,
-      navMenu: [
-        {
-          mnuId: "SYS-UI-001-000",
-          uppMnuId: null,
-          mnuNm: "대시보드",
-          mnuLvl: 1,
-          mnuImg: null,
-          scrnPth: "dashboard",
-          srtSqn: 100,
-          mnuFncCds: "C,D,R,U",
-          tskId: "dashboard",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-002-000",
-          uppMnuId: null,
-          mnuNm: "사이트 관리",
-          mnuLvl: 1,
-          mnuImg: null,
-          scrnPth: "adm",
-          srtSqn: 200,
-          mnuFncCds: "A",
-          tskId: "manager",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-002-001",
-          uppMnuId: "SYS-UI-002-000",
-          mnuNm: "메뉴 관리",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/adm/mnu/mnuList",
-          srtSqn: 201,
-          mnuFncCds: "C,D,R,U",
-          tskId: "menu",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-002-002",
-          uppMnuId: "SYS-UI-002-000",
-          mnuNm: "관리사용자 관리",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/adm/adm/admList",
-          srtSqn: 202,
-          mnuFncCds: "C,D,R,U",
-          tskId: "mngrmanager",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-002-003",
-          uppMnuId: "SYS-UI-002-000",
-          mnuNm: "역할/권한 관리",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/adm/admRol/admRolList",
-          srtSqn: 203,
-          mnuFncCds: "C,D,R,U",
-          tskId: "sysmngr/roles",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-003-000",
-          uppMnuId: null,
-          mnuNm: "시스템 관리",
-          mnuLvl: 1,
-          mnuImg: null,
-          scrnPth: "sysSet",
-          srtSqn: 300,
-          mnuFncCds: "A",
-          tskId: "system",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-003-001",
-          uppMnuId: "SYS-UI-003-000",
-          mnuNm: "홈넷사 관리",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/sysSet/hNetCo/hNetCoList",
-          srtSqn: 301,
-          mnuFncCds: "C,D,R,U",
-          tskId: "homenet",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-003-002",
-          uppMnuId: "SYS-UI-003-000",
-          mnuNm: "연동시스템 상태",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/sysSet/lnkgSys/lnkgSysList",
-          srtSqn: 302,
-          mnuFncCds: "C,D,R,U",
-          tskId: "linksys",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-003-003",
-          uppMnuId: "SYS-UI-003-000",
-          mnuNm: "공지사항",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/sysSet/boardNotice/boardNoticeList",
-          srtSqn: 303,
-          mnuFncCds: "C,D,R,U",
-          tskId: "boards/notice",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-003-004",
-          uppMnuId: "SYS-UI-003-000",
-          mnuNm: "서비스 약관 관리",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/sysSet/serviceClu/serviceCluList",
-          srtSqn: 304,
-          mnuFncCds: "C,D,R,U",
-          tskId: "serviceClu",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-004-000",
-          uppMnuId: null,
-          mnuNm: "리포트",
-          mnuLvl: 1,
-          mnuImg: null,
-          scrnPth: "report",
-          srtSqn: 400,
-          mnuFncCds: "A",
-          tskId: "report",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-004-001",
-          uppMnuId: "SYS-UI-004-000",
-          mnuNm: "배치 프로세스 이력",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/report/batchHst/batchHstList",
-          srtSqn: 401,
-          mnuFncCds: "C,D,R,U",
-          tskId: "mngr/log",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-004-002",
-          uppMnuId: "SYS-UI-004-000",
-          mnuNm: "클라우드 운영 보고서",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/report/cldOprt/cldOprtList",
-          srtSqn: 402,
-          mnuFncCds: "C,D,R,U",
-          tskId: "cloudreport",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-004-003",
-          uppMnuId: "SYS-UI-004-000",
-          mnuNm: "접속/메뉴 사용이력",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/report/usConn/usConnList",
-          srtSqn: 403,
-          mnuFncCds: "C,D,R,U",
-          tskId: "mngr/log",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-005-000",
-          uppMnuId: null,
-          mnuNm: "앱사용자 관리",
-          mnuLvl: 1,
-          mnuImg: null,
-          scrnPth: "usrAdm",
-          srtSqn: 500,
-          mnuFncCds: "A",
-          tskId: "user",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-005-001",
-          uppMnuId: "SYS-UI-005-000",
-          mnuNm: "앱사용자 관리",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/usrAdm/usrAdm/usrList",
-          srtSqn: 501,
-          mnuFncCds: "C,D,R,U",
-          tskId: "usermanager",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-006-000",
-          uppMnuId: null,
-          mnuNm: "설정",
-          mnuLvl: 1,
-          mnuImg: null,
-          scrnPth: "set",
-          srtSqn: 600,
-          mnuFncCds: "A",
-          tskId: "config",
-          pgmDsCd: "SYS"
-        },
-        {
-          mnuId: "SYS-UI-006-001",
-          uppMnuId: "SYS-UI-006-000",
-          mnuNm: "내설정",
-          mnuLvl: 2,
-          mnuImg: null,
-          scrnPth: "/set/myInfoSet/myInfoSet",
-          srtSqn: 601,
-          mnuFncCds: "C,D,R,U",
-          tskId: "mngr/myinfo",
-          pgmDsCd: "SYS"
-        }
-      ]
+      navMenu: [] // GnB JSON 저장
     };
   },
+  async fetch() {
+    // console.log(`${process.env.API_URL}navMenu`);
+    console.log("요청");
+    // const { data } = await this.$api.get(`navMenu`);
+  },
   methods: {
-    testProc(scrnPth) {
+    goPath(scrnPth) {
       this.$router.push({ path: scrnPth });
     },
+    async testProc() {
+      await this.$api.get(`navMenu`);
+    }
   },
 };
 </script>
