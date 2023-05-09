@@ -72,7 +72,6 @@
         :md="layoutLeft ? layoutLeftCol : ''"
       >
         레프트
-        <button @click="testProc">클릭</button>
       </v-col>
       <v-col
         cols="12"
@@ -115,21 +114,21 @@ export default {
       layoutLeft,
       layoutLeftCol,
       layoutRightCol,
-      navMenu: [] // GnB JSON 저장
     };
   },
   async fetch() {
-    // console.log(`${process.env.API_URL}navMenu`);
-    console.log("요청");
-    // const { data } = await this.$api.get(`navMenu`);
+    // GnB 메뉴 정보
+    await this.$store.dispatch('layouts/loadNavMenu');
+  },
+  computed: {
+    navMenu() { // fetch 로 저장된 vuex navMenu 로드
+      return this.$store.state.layouts.navMenu;
+    }
   },
   methods: {
     goPath(scrnPth) {
       this.$router.push({ path: scrnPth });
     },
-    async testProc() {
-      await this.$api.get(`navMenu`);
-    }
   },
 };
 </script>

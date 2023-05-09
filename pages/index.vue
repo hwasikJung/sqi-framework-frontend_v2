@@ -20,6 +20,11 @@
 
 <script>
 export default {
-  name: 'Index'
+  name: 'IndexPage',
+  // async fetch({ store }) {
+  //   await store.dispatch('layouts/loadNavMenu');
+  //   // console.log(`${process.env.API_URL}navMenu`);
+  //   // const { data } = await this.$api.get(`${process.env.API_URL}navMenu`);
+  // },
 };
 </script>
