@@ -15,7 +15,9 @@
     <nuxt-link to="/member/loginMem">
       로그인
     </nuxt-link>
+    accessToken: {{ $auth.userToken }}
   </div>
+
 </template>
 
 <script>

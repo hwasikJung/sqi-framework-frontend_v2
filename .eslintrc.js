@@ -10,66 +10,70 @@ module.exports = {
   },
   extends: [
     'plugin:vue/essential',
-    '@vue/airbnb',
+    '@vue/airbnb', // 코딩컨벤션 중 가장 유명한 Airbnb 적용(https://url.kr/hirom5)
   ],
-
   rules: {
-    "no-shadow": "off",
-    quotes: ["off", "single"],
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
-    "import/prefer-default-export": "off",
-    // semi: ["error", "never"],
-    semi: ["error", "always", { omitLastInOneLineBlock: false }],
-    "semi-style": ["error", "last"],
-    "no-mixed-spaces-and-tabs": 0,
-    "no-tabs": 0,
-    "no-new": 0,
-    "operator-linebreak": 0,
-    "prefer-destructuring": 0,
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        js: "never",
-        jsx: "never",
-        ts: "never",
-        tsx: "never",
-      },
-    ],
-    "import/no-unresolved": 0,
-    "comma-dangle": 0,
-    // "comma-dangle": 0,
-    "implicit-arrow-linebreak": 0,
-    curly: 0,
-    "nonblock-statement-body-position": 0,
-    "vue/max-len": ["error", {
-      code: 180,
-      template: 180,
-      tabWidth: 2,
-      comments: 180,
-      ignorePattern: "",
-      ignoreComments: false,
-      ignoreTrailingComments: false,
-      ignoreUrls: false,
-      ignoreStrings: false,
-      ignoreTemplateLiterals: false,
-      ignoreRegExpLiterals: false,
-      ignoreHTMLAttributeValues: false,
-      ignoreHTMLTextContents: false,
-    }],
-    "linebreak-style": "off",
-    "object-curly-newline": 0,
-    camelcase: [
-      "error",
-      { properties: "never", ignoreDestructuring: true, ignoreImports: true },
-    ],
-    // "arrow-parens": ["error", "as-needed"],
-    "arrow-parens": 0,
-    "vue/multiline-html-element-content-newline": "off",
-    "eslint-disable-next-line": "off",
-    "import/no-cycle": "off",
-    "no-param-reassign": "off",
+    /**
+     * 필요한 룰만 등록 후, 설명 추가 예정
+     */
+    'no-console': 'off', // console 사용하지 않는 것이 가장 좋은 방법으로 간주됩니다
+    'import/no-unresolved': 'off', // ~경로 설정시 찾지 못하는 오류
+
+    // "no-shadow": "off",
+    // quotes: ["off", "single"],
+    // "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    // "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    // "import/prefer-default-export": "off",
+    // // semi: ["error", "never"],
+    // semi: ["error", "always", { omitLastInOneLineBlock: false }],
+    // "semi-style": ["error", "last"],
+    // "no-mixed-spaces-and-tabs": 0,
+    // "no-tabs": 0,
+    // "no-new": 0,
+    // "operator-linebreak": 0,
+    // "prefer-destructuring": 0,
+    // "import/extensions": [
+    //   "error",
+    //   "ignorePackages",
+    //   {
+    //     js: "never",
+    //     jsx: "never",
+    //     ts: "never",
+    //     tsx: "never"
+    //   }
+    // ],
+    // "import/no-unresolved": 0,
+    // "comma-dangle": ["error", "never"],
+    // "implicit-arrow-linebreak": 0,
+    // curly: 0,
+    // "nonblock-statement-body-position": 0,
+    // "vue/max-len": ["error", {
+    //   code: 180,
+    //   template: 180,
+    //   tabWidth: 2,
+    //   comments: 180,
+    //   ignorePattern: "",
+    //   ignoreComments: false,
+    //   ignoreTrailingComments: false,
+    //   ignoreUrls: false,
+    //   ignoreStrings: false,
+    //   ignoreTemplateLiterals: false,
+    //   ignoreRegExpLiterals: false,
+    //   ignoreHTMLAttributeValues: false,
+    //   ignoreHTMLTextContents: false
+    // }],
+    // "linebreak-style": "off",
+    // "object-curly-newline": 0,
+    // camelcase: [
+    //   "error",
+    //   { properties: "never", ignoreDestructuring: true, ignoreImports: true }
+    // ],
+    // // "arrow-parens": ["error", "as-needed"],
+    // "arrow-parens": 0,
+    // "vue/multiline-html-element-content-newline": "off",
+    // "eslint-disable-next-line": "off",
+    // "import/no-cycle": "off",
+    // "no-param-reassign": "off"
 
   },
 };
