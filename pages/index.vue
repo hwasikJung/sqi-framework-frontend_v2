@@ -15,7 +15,7 @@
     <nuxt-link to="/member/loginMem">
       로그인
     </nuxt-link>
-    accessToken: {{ $auth.userToken }}
+
   </div>
 
 </template>
@@ -23,10 +23,9 @@
 <script>
 export default {
   name: 'IndexPage',
-  // async fetch({ store }) {
-  //   await store.dispatch('layouts/loadNavMenu');
-  //   // console.log(`${process.env.API_URL}navMenu`);
-  //   // const { data } = await this.$api.get(`${process.env.API_URL}navMenu`);
-  // },
+
+  methods: {
+
+  },
 };
 </script>

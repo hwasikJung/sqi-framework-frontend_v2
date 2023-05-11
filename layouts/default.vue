@@ -101,7 +101,9 @@
 </template>
 <script>
 
-import { layoutHeader, layoutFooter, layoutGnB, layoutColor, layoutLeft, layoutLeftCol, layoutRightCol } from "~/plugin/layout.setting";
+import {
+  layoutHeader, layoutFooter, layoutGnB, layoutColor, layoutLeft, layoutLeftCol, layoutRightCol,
+} from '~/plugin/layout.setting';
 
 export default {
   name: 'DefaultPage',
@@ -118,12 +120,12 @@ export default {
   },
   async fetch() {
     // GnB 메뉴 정보
-    await this.$store.dispatch('layouts/loadNavMenu');
+    // await this.$store.dispatch('layouts/loadNavMenu');
   },
   computed: {
     navMenu() { // fetch 로 저장된 vuex navMenu 로드
       return this.$store.state.layouts.navMenu;
-    }
+    },
   },
   methods: {
     goPath(scrnPth) {

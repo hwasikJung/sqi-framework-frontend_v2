@@ -18,7 +18,7 @@ module.exports = {
      */
     'no-console': 'off', // console 사용하지 않는 것이 가장 좋은 방법으로 간주됩니다
     'import/no-unresolved': 'off', // ~경로 설정시 찾지 못하는 오류
-
+    'no-shadow': 'off', // 외부 범위에 선언된 변수를 음영으로 표시하는 변수 선언을 허용하지 않습니다
     // "no-shadow": "off",
     // quotes: ["off", "single"],
     // "no-console": process.env.NODE_ENV === "production" ? "error" : "off",

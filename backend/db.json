@@ -195,7 +195,15 @@
       "imageUrl": "http://placeimg.com/640/480/fashion"
     }
   ],
-
+  "login": {
+    "resCd": "SQI0000",
+    "resMsg": "성공",
+    "resData": {
+      "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzeXNhZG1pbiIsInJvbElkIjoiU1lTX01OR1IiLCJpYXQiOjE2ODM3Nzc2OTMsImV4cCI6MTY4NDk4NzI5M30.oRPgd2j4x66rh_4u0HobhnosUKb0NrWGJsBoYb1KnI8",
+      "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzeXNhZG1pbiIsInJvbElkIjoiU1lTX01OR1IiLCJpYXQiOjE2ODM3Nzc2OTMsImV4cCI6MTY4NDk4NzI5M30.Q3IiMul6YINsDuneSxUrw32l51wsZaAFp4UKXMXJo9A",
+      "usrId": "sysadmin"
+    }
+  },
   "navMenu": {
     "resCd": "SQI0000",
     "resMsg": "성공",

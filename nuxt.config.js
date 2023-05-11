@@ -37,35 +37,44 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    '@nuxtjs/auth-next',
+    '@nuxtjs/axios', // $axios를 사용할 수 있음
+    '@nuxtjs/proxy', // axios를 proxy 모듈과 쉽게 통합할 수 있게해준다.
+    ['cookie-universal-nuxt', { alias: 'cookiz' }],
+    // '@nuxtjs/auth',
   ],
-  auth: {
-    strategies: {
-      local: {
-        token: {
-          property: 'accessToken',
-          global: true,
-          maxAge: 1800, // 액세스 토큰 만료 시간 (초 단위)
-        },
-        refreshToken: {
-          property: 'refreshToken',
-          data: 'refresh_token',
-          maxAge: 60 * 60 * 24 * 30, // 리프레시 토큰 만료 시간 (초 단위)
-        },
-        user: {
-          property: false,
-          autoFetch: true,
-        },
-        endpoints: {
-          login: { url: 'http://localhost:8086/api/v1/cert/login', method: 'post' },
-          // refresh: { url: '/api/auth/refresh', method: 'post' },
-          // logout: { url: '/api/auth/logout', method: 'post' },
-          user: false,
-        },
-      },
-    },
-  },
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       token: {
+  //         property: 'accessToken',
+  //         localStorage: false,
+  //         cookie: {
+  //           // 쿠키의 옵션을 설정합니다.
+  //           name: 'auth-token',
+  //           expires: 7, // 일수
+  //           domain: 'example.com',
+  //           path: '/',
+  //           secure: true,
+  //         },
+  //       },
+  //       refreshToken: {
+  //         property: 'refreshToken',
+  //         data: 'refreshToken',
+  //         maxAge: 60 * 60 * 24 * 30, // 리프레시 토큰 만료 시간 (초 단위)
+  //       },
+  //       user: {
+  //         property: false,
+  //         autoFetch: true,
+  //       },
+  //       endpoints: {
+  //         login: { url: 'http://localhost:8086/api/v1/cert/login', method: 'post' },
+  //         // refresh: { url: '/api/auth/refresh', method: 'post' },
+  //         // logout: { url: '/api/auth/logout', method: 'post' },
+  //         user: false,
+  //       },
+  //     },
+  //   },
+  // },
   // router: {
   //   middleware: ['auth'],
   // },
