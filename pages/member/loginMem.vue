@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container v-if="!member">
+    <v-container v-if="!me">
       <v-card>
         <v-form ref="form" v-model="valid" @submit.prevent="onLogin">
           <v-container>
@@ -8,12 +8,11 @@
               v-model="usrId"
               :rules="userIdRules"
               label="아이디"
-              type="email"
+              type="text"
               required
             />
             <v-text-field
               v-model="usrPwd"
-              :rules="passwordRules"
               label="비밀번호"
               type="password"
               required
@@ -37,7 +36,7 @@
     <v-container v-else>
       <v-card>
         <v-container>
-          {{member}}님 로그인되었습니다.
+          {{me}}님 로그인되었습니다.
           <v-btn @click="onLogOut">로그아웃</v-btn>
         </v-container>
       </v-card>
@@ -48,22 +47,24 @@
 <script>
 export default {
   name: 'LoginMem',
+  // middleware: ['anonymous'], // 모든 사용자 접근 미들웨어 추가
   data() {
     return {
       valid: false,
-      userIdRules: [
-        (v) => !!v || '아이디는 필수입니다.',
-      ],
-      passwordRules: [
-        (v) => !!v || '비밀번호는 필수입니다.',
-      ],
+      userIdRules: [(v) => !!v || '아이디는 필수입니다.'],
+      passwordRules: [(v) => !!v || '비밀번호는 필수입니다.'],
       usrId: 'adm01',
       usrPwd: 'qwer1234',
     };
   },
+  created() {
+    this.$store.state.member.me = this.$cookiz.get('usrId');
+    this.$store.state.member.accessToken = this.$cookiz.get('accessToken');
+    this.$store.state.member.refreshToken = this.$cookiz.get('refreshToken');
+  },
   computed: {
-    member() {
-      return this.$store.state.member.member;
+    me() {
+      return this.$store.state.member.me;
     },
   },
   methods: {
@@ -74,15 +75,18 @@ export default {
             usrId: this.usrId,
             usrPwd: this.usrPwd,
           });
+          await this.$router.push({ path: '/' });
         } catch (err) {
           console.error(err);
         }
       }
     },
-    onLogOut() {
-      this.$store.dispatch('users/logOut');
+    async onLogOut() {
+      await this.$store.dispatch('member/logOut');
+      await this.$router.push({ path: '/' });
     },
   },
+
 };
 </script>
 

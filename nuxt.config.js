@@ -40,7 +40,7 @@ export default {
     '@nuxtjs/axios', // $axios를 사용할 수 있음
     '@nuxtjs/proxy', // axios를 proxy 모듈과 쉽게 통합할 수 있게해준다.
     ['cookie-universal-nuxt', { alias: 'cookiz' }],
-    // '@nuxtjs/auth',
+    // '@nuxtjs/auth-next', // 추후 예정
   ],
   // auth: {
   //   strategies: {

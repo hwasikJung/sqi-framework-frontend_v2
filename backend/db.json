@@ -204,6 +204,12 @@
       "usrId": "sysadmin"
     }
   },
+  "accessToken" : {
+    "accessToken":"SampleAccessToken"
+  },
+  "refreshToken" : {
+    "refreshToken": "SampleRefreshToken"
+  },
   "navMenu": {
     "resCd": "SQI0000",
     "resMsg": "성공",
@@ -214,7 +220,7 @@
         "mnuNm": "대시보드",
         "mnuLvl": 1,
         "mnuImg": null,
-        "scrnPth": "dashboard",
+        "scrnPth": "/",
         "srtSqn": 100,
         "mnuFncCds": "C,D,R,U",
         "tskId": "dashboard",
@@ -223,7 +229,7 @@
       {
         "mnuId": "SYS-UI-002-000",
         "uppMnuId": null,
-        "mnuNm": "사이트 관리",
+        "mnuNm": "권한 관리",
         "mnuLvl": 1,
         "mnuImg": null,
         "scrnPth": "adm",
@@ -238,7 +244,7 @@
         "mnuNm": "메뉴 관리",
         "mnuLvl": 2,
         "mnuImg": null,
-        "scrnPth": "/adm/mnu/mnuList",
+        "scrnPth": "/menu/menuList",
         "srtSqn": 201,
         "mnuFncCds": "C,D,R,U",
         "tskId": "menu",
@@ -247,10 +253,10 @@
       {
         "mnuId": "SYS-UI-002-002",
         "uppMnuId": "SYS-UI-002-000",
-        "mnuNm": "관리사용자 관리",
+        "mnuNm": "권한 관리",
         "mnuLvl": 2,
         "mnuImg": null,
-        "scrnPth": "/adm/adm/admList",
+        "scrnPth": "/role/roleList",
         "srtSqn": 202,
         "mnuFncCds": "C,D,R,U",
         "tskId": "mngrmanager",
@@ -259,10 +265,10 @@
       {
         "mnuId": "SYS-UI-002-003",
         "uppMnuId": "SYS-UI-002-000",
-        "mnuNm": "역할/권한 관리",
+        "mnuNm": "코드관리",
         "mnuLvl": 2,
         "mnuImg": null,
-        "scrnPth": "/adm/admRol/admRolList",
+        "scrnPth": "/code/codeList",
         "srtSqn": 203,
         "mnuFncCds": "C,D,R,U",
         "tskId": "sysmngr/roles",

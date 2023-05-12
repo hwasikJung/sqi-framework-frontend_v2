@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--
     <nuxt-link to="/member/joinMem">
       회원가입
     </nuxt-link>
@@ -15,14 +16,17 @@
     <nuxt-link to="/member/loginMem">
       로그인
     </nuxt-link>
-
+-->
+    대시보드
   </div>
 
 </template>
 
 <script>
+
 export default {
   name: 'IndexPage',
+  middleware: ['anonymous'],
 
   methods: {
 

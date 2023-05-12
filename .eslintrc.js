@@ -18,7 +18,10 @@ module.exports = {
      */
     'no-console': 'off', // console 사용하지 않는 것이 가장 좋은 방법으로 간주됩니다
     'import/no-unresolved': 'off', // ~경로 설정시 찾지 못하는 오류
+    'linebreak-style': ['error', 'windows'], // eslint에서 linebreak-style 옵션을 명시하지 않는 경우 개행을 체크할 때 ["error", "unix"] 가 사용됩니다.
+    'vue/max-len': 'off', // 라인 최대 길이 오류
     'no-shadow': 'off', // 외부 범위에 선언된 변수를 음영으로 표시하는 변수 선언을 허용하지 않습니다
+    'object-curly-newline': 'off', // 특정길이 이상 다음줄로 넘어감
     // "no-shadow": "off",
     // quotes: ["off", "single"],
     // "no-console": process.env.NODE_ENV === "production" ? "error" : "off",

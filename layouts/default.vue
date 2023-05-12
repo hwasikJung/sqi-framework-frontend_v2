@@ -15,6 +15,11 @@
         </v-toolbar-title>
         <v-spacer />
         <v-row v-if="layoutGnB">
+          <div
+            class="white--text ma-5"
+          >
+            <nuxt-link to="/">대시보드</nuxt-link>
+          </div>
           <v-menu
             v-for="(data, i) in navMenu.filter((c) => c.mnuLvl === 1 && c.tskId !== 'dashboard')"
             :key="i"
@@ -45,7 +50,7 @@
             </v-list>
           </v-menu>
         </v-row>
-        <v-toolbar-items>
+        <!--        <v-toolbar-items>
           <v-btn
             text
             nuxt
@@ -62,7 +67,7 @@
           >
             <div>회원가입</div>
           </v-btn>
-        </v-toolbar-items>
+        </v-toolbar-items>-->
       </v-toolbar>
     </nav>
     <v-row no-gutters>
@@ -71,7 +76,7 @@
         cols="12"
         :md="layoutLeft ? layoutLeftCol : ''"
       >
-        레프트
+        <login-mem />
       </v-col>
       <v-col
         cols="12"
@@ -104,9 +109,11 @@
 import {
   layoutHeader, layoutFooter, layoutGnB, layoutColor, layoutLeft, layoutLeftCol, layoutRightCol,
 } from '~/plugin/layout.setting';
+import LoginMem from '~/pages/member/loginMem.vue';
 
 export default {
   name: 'DefaultPage',
+  components: { LoginMem },
   data() {
     return {
       layoutHeader,
@@ -120,7 +127,7 @@ export default {
   },
   async fetch() {
     // GnB 메뉴 정보
-    // await this.$store.dispatch('layouts/loadNavMenu');
+    await this.$store.dispatch('layouts/loadNavMenu');
   },
   computed: {
     navMenu() { // fetch 로 저장된 vuex navMenu 로드

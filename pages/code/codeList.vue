@@ -4,7 +4,8 @@
 
 <script>
 export default {
-  name: "CodeList"
+  name: 'CodeList',
+  middleware: ['anonymous'], // 모든 사용자 접근 미들웨어 추가
 };
 </script>
 

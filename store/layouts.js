@@ -13,7 +13,7 @@ export const mutations = {
 export const actions = {
   async loadNavMenu({ commit }) {
     try {
-      const res = await this.$axios.get('navMenu');
+      const res = await this.$api.get('navMenu');
       if (res.data.resCd === 'SQI0000') {
         commit('loadNavMenu', res.data.resData);
       }
