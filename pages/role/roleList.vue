@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  middleware: ['anonymous'], // 모든 사용자 접근 미들웨어 추가
+  middleware: ['authenticated'], // 로로그인 사용자 미들웨어 추가
   data() {
     return {
       headers: [

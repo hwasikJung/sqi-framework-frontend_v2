@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container v-if="!me">
+    <v-container v-if="!loginCheck">
       <v-card>
         <v-form ref="form" v-model="valid" @submit.prevent="onLogin">
           <v-container>
@@ -36,9 +36,13 @@
     <v-container v-else>
       <v-card>
         <v-container>
-          {{me}}님 로그인되었습니다.
-          <v-btn @click="onLogOut">로그아웃</v-btn>
+          {{loginCheck}}님 로그인되었습니다.
+          <v-container>
+            <v-btn @click="onLogInInfo">내정보</v-btn>
+            <v-btn @click="onLogOut">로그아웃</v-btn>
+          </v-container>
         </v-container>
+
       </v-card>
     </v-container>
   </div>
@@ -58,16 +62,21 @@ export default {
     };
   },
   created() {
-    this.$store.state.member.me = this.$cookiz.get('usrId');
+    this.$store.state.member.usrId = this.$cookiz.get('usrId');
     this.$store.state.member.accessToken = this.$cookiz.get('accessToken');
     this.$store.state.member.refreshToken = this.$cookiz.get('refreshToken');
+    this.$store.state.member.nickName = this.$cookiz.get('nickName');
+    this.$store.state.member.rolId = this.$cookiz.get('rolId');
   },
   computed: {
-    me() {
-      return this.$store.state.member.me;
+    loginCheck() {
+      return this.$store.state.member.nickName;
     },
   },
   methods: {
+    async onLogInInfo() {
+      await this.$router.push({ path: '/member/loginInfo' });
+    },
     async onLogin() {
       if (this.$refs.form.validate()) {
         try {
