@@ -21,7 +21,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugin/layout.setting.js', '~/plugin/api.interceptor.js'],
+  plugins: ['~/plugins/layout.setting.js', '~/plugins/api.interceptor.js', '~/plugins/vue-jstree.js', '~/plugins/fontawesome.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

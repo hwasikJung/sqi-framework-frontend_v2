@@ -108,7 +108,7 @@
 
 import {
   layoutHeader, layoutFooter, layoutGnB, layoutColor, layoutLeft, layoutLeftCol, layoutRightCol,
-} from '~/plugin/layout.setting';
+} from '~/plugins/layout.setting';
 import LoginMem from '~/pages/member/loginMem.vue';
 
 export default {
