@@ -24,7 +24,7 @@ module.exports = {
     'no-shadow': 'off', // 외부 범위에 선언된 변수를 음영으로 표시하는 변수 선언을 허용하지 않습니다
     'object-curly-newline': 'off', // 특정길이 이상 다음줄로 넘어감
     'no-restricted-globals': 'off', // 특정 전역 변수의 사용을 허용하지 않는다
-
+    'import/extensions': ['off'], // 확장자명이 달려있다면 error 표시
     // "no-shadow": "off",
     // quotes: ["off", "single"],
     // "no-console": process.env.NODE_ENV === "production" ? "error" : "off",

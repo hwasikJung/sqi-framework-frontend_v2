@@ -1,6 +1,9 @@
 /**
  * layouts 사용하는 vuex store
  */
+
+import ApiResponseCode from '~/constants/api-response-code.js';
+
 export const state = () => ({
   navMenu: [],
 });
@@ -12,13 +15,10 @@ export const mutations = {
 };
 export const actions = {
   async loadNavMenu({ commit }) {
-    try {
-      const res = await this.$api.get('navMenu');
-      if (res.data.resCd === 'SQI0000') {
-        commit('loadNavMenu', res.data.resData);
-      }
-    } catch (err) {
-      console.error(err);
+    const { data } = await this.$api.get('navMenu');
+    if (data.resCd === ApiResponseCode.SUCCESS) {
+      commit('loadNavMenu', data.resData);
     }
+    return data.resData;
   },
 };

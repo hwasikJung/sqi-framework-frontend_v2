@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  middleware: ['authenticated'], // 로그인 사용자 미들웨어 추가
+
   data() {
     return {
       selected: [],
